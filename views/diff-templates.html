@@ -1,0 +1,67 @@
+<script type="text/template" id="all-differences-template">
+    <% conflict.get('differences').each(function(diff){ %>
+        <div class="row-fluid">
+            <div class="diff">
+                <% _.each([diff.get('left'), diff.get('right')], function(d){ %>
+                    <div class="span6">
+                        <div class="source">
+                            <h2><%=d.get('branch')%></h2>
+                            <div class="code-wrap">
+                                <pre class="brush: xml; first-line: <%=d.get('line_num')%>"><%=d.get('content')%></pre>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+            </div>
+        </div>
+    <% }); %>
+</script>
+
+<script type="text/template" id="diff-template">
+    <div class="row-fluid">
+        <div class="span12">
+            <% if (active_diff_index > 0){ %>
+                <a class="previous" href="/diffs/<%=parseInt(active_diff_index) - 1%>">Previous</a>
+            <% } %>
+
+            <% if (active_diff_index < num_diffs - 1){ %>
+                <a class="next" href="/diffs/<%=parseInt(active_diff_index) + 1%>">Next</a>
+            <% } else { %>
+                <a class="resolve" href="/resolve">Resolve</a>
+            <% } %>
+
+            <a class="use-left" href="#">Select Left</a>
+            <a class="use-right" href="#">Select Right</a>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="diff">
+            <div class="span6">
+                <div class="source">
+                    <% diff = active_diff.get('left'); %>
+                    <h2><%=diff.get('branch')%></h2>
+                    <div class="code-wrap">
+                        <pre class="brush: xml; first-line: <%=diff.get('line_num')%>"><%=diff.get('content')%></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="span6">
+                <div class="source">
+                    <% diff = active_diff.get('right'); %>
+                    <h2><%=diff.get('branch')%></h2>
+                    <div class="code-wrap">
+                        <pre class="brush: xml; first-line: <%=diff.get('line_num')%>"><%=diff.get('content')%></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script type="text/template" id="resolved-merge-template">
+    <div class="row-fluid">
+        <div class="span12">
+            <pre class="brush: xml"><%=merged_output%></pre>
+        </div>
+    </div>
+</script>
