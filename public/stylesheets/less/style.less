@@ -6,11 +6,59 @@ body{
     padding:30px 60px;
 }
 
+.bubble(@color:#00cc3e){
+    background-color:@color;
+    color:#fff;
+    padding:18px 12px 0;
+    font-size:22px;
+    width:176px;
+    text-align:center;
+    margin:15px;
+    word-wrap:break-word;
+
+    a{
+        color:inherit;
+    }
+
+    .tip{
+        position:relative;
+        bottom:-20px;
+        width: 0;
+        height: 0;
+        border-left: 26px solid transparent;
+        border-right: 14px solid transparent;
+        border-top: 20px solid @color;
+        left:50%;
+    }
+}
+
 .diff{
     .source{
         .code-wrap{
             overflow-x:auto;
         }
+    }
+
+    .select-diff-bubble{
+        .bubble(#1b3944);
+        margin-left:14%;
+        top:72px;
+        position:fixed;
+        z-index:10;
+        width:300px;
+
+        a{
+            color:#fff;
+        }
+    }
+
+    .select-diff-side{
+        display:inline-block;
+        background-color:#1b3944;
+        padding:6px 18px;
+        color:#fff;
+        margin:15px;
+        font-size:18px;
     }
 }
 
@@ -27,8 +75,8 @@ body{
 }
 
 #create-conflict-form{
-    textarea, #diffs-overview{
-        position:absolute;
+    textarea{
+        position:relative;
         top:0;
         left:0;
         z-index:2;
@@ -42,31 +90,13 @@ body{
 
 #submit-box{
     position:fixed;
-    width:100%;
     z-index:20;
     top:0;
-    left:0;
+    right:0;
 
-    .bubble{
-        background-color:#00cc3e;
-        color:#fff;
-        padding:18px 12px 0;
-        font-size:22px;
-        width:176px;
-        text-align:center;
+    .continue-bubble{
+        .bubble(#00cc3e);
         float:right;
-        margin:15px;
-
-        .tip{
-            position:relative;
-            bottom:-20px;
-            width: 0;
-            height: 0;
-            border-left: 26px solid transparent;
-            border-right: 14px solid transparent;
-            border-top: 20px solid #00cc3e;
-            left:50%;
-        }
     }
 
     .submit{
@@ -77,5 +107,39 @@ body{
         font-size:18px;
         float:right;
         clear:right;
+    }
+}
+
+.syntaxhighlighter{
+    max-height:450px;
+}
+
+#left{
+    .syntaxhighlighter{
+        background-color:#1b3944 !important;
+    }
+}
+
+#right{
+    .syntaxhighlighter{
+        background-color:#222 !important;
+    }
+
+    .select-diff-bubble{
+        background-color:#222;
+
+        .tip{
+            border-top-color:#222;
+        }
+    }
+}
+
+#resolved{
+    .click-to-copy-bubble{
+        .bubble;
+        position:fixed;
+        margin-left:70%;
+        z-index:10;
+        top:35px;
     }
 }

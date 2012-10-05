@@ -3,6 +3,7 @@
 //@codekit-prepend "backbone-0.9.2.js";
 //@codekit-prepend "shCore.js";
 //@codekit-prepend "shBrushXml.js";
+//@codekit-prepend "jquery.zclip.js";
 //@codekit-append "models.js";
 //@codekit-append "views.js";
 //@codekit-append "router.js";

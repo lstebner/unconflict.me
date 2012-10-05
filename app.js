@@ -45,8 +45,7 @@ app.post('/process', function(req, res){
       ,right_buffer = ''
       ,capturing = false
       ,line_num = 0
-      ,merge_template = []
-      ,merge_diff_indexes = []
+      ,merge_template = ''
       ,conflict_line = 0
   ;
 
@@ -110,13 +109,12 @@ app.post('/process', function(req, res){
           left_branch = getBranchName(line);
         }
 
-        merge_template.push("{diff-" + differences.length + "}");
-        merge_diff_indexes.push(merge_template.length - 1);
+        merge_template += "{diff-" + differences.length + "}";
 
         conflict_line = line_num;
       }
       else{
-        merge_template.push(line);
+        merge_template += line;
       }
     }
   });
@@ -125,7 +123,6 @@ app.post('/process', function(req, res){
     raw: raw
     ,differences: differences
     ,merge_template: merge_template
-    ,merge_diff_indexes: merge_diff_indexes
     ,total_lines: line_num
   };
 

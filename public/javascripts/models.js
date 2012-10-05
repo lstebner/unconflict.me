@@ -41,10 +41,9 @@ var DiffsCollection = Backbone.Collection.extend({
 
 var MergeTemplateModel = Backbone.Model.extend({
     defaults: {
-        template: []
+        template: ''
         ,rendered: ''
         ,differences: []
-        ,merge_diff_indexes: []
     }
     ,setDifferences: function(diffs){
         this.set('differences', diffs);
@@ -52,29 +51,15 @@ var MergeTemplateModel = Backbone.Model.extend({
     ,run: function(opts){
         if (!opts){ opts = {}; }
 
-        var pieces = this.get('template')
-            ,rendered = ''
-        ;
+        var t = this.get('template');
 
-        //key = the index of the difference
-        //index = the line number in the template to insert at
-        _.each(this.get('merge_diff_indexes'), function(index, key){
-            var diff = this.get('differences').at(key);
-
-            if (diff){
-                pieces[index] = diff.get('content');
+        this.get('differences').each(function(diff, index){
+            if (diff.get('selected')){
+                t = t.replace('{diff-' + index + '}', diff.get('selected').get('content'));
             }
         });
 
-        // this.get('differences').each(function(diff, index){
-        //     if (diff.get('selected')){
-        //         t = t.replace('{diff-' + index + '}', diff.get('selected').get('content'));
-        //     }
-        // });
-
-        rendered = pieces.join("\n");
-
-        this.set('rendered', escapeHTML(rendered));
+        this.set('rendered', escapeHTML(t));
 
         return t;
     }
@@ -84,8 +69,7 @@ var ConflictModel = Backbone.Model.extend({
     defaults: {
         raw: ''
         ,differences: []
-        ,merge_template: []
-        ,merge_diff_indexes: []
+        ,merge_template: ''
         ,merge_template_model: null
     }
     ,url: '/process'
@@ -99,19 +83,11 @@ var ConflictModel = Backbone.Model.extend({
         this.set('differences', new DiffsCollection(this.get('differences')), { silent:true });
     }
     ,refreshMergeTemplate: function(){
-        this.set(
-            'merge_template_model',
-            new MergeTemplateModel({
-                template:this.get('merge_template')
-                ,merge_diff_indexes:this.get('merge_diff_indexes')
-            }),
-            { silent:true }
-        );
+        this.set('merge_template_model', new MergeTemplateModel({ template:this.get('merge_template') }), { silent:true });
     }
     ,createMergeTemplate: function(){
         var mt = new MergeTemplateModel({
             template: this.get('merge_template')
-            ,merge_diff_indexes: this.get('merge_diff_indexes')
         });
 
         mt.setDifferences(this.get('differences'));

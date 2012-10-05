@@ -18,21 +18,13 @@ var CreateConflictView = Backbone.View.extend({
             this.createConflict();
         }
         ,'keyup textarea': function(e){
-            //this.$el.find('pre').html( escapeHTML($(e.currentTarget).val()) );
-            //SyntaxHighlighter.highlight();
-
             var val = $(e.currentTarget).val();
 
             if (val.length){
                 this.$el.find('#submit-box').fadeIn(1355);
-
-                //this.$el.find('#formatted-code').html(escapeHTML($(e.currentTarget).val()));
-                //this.$el.find('#formatted-code').fadeIn(600);
-                //this.$el.find('textarea').fadeOut(600);
-
-                //setTimeout(function(){
-                    //SyntaxHighlighter.highlight();
-                //}, 300);
+            }
+            else if (this.$el.find('#submit-box').is(':visible')){
+                this.$el.find('#submit-box').fadeOut(455);
             }
         }
     }
@@ -141,6 +133,16 @@ var ResolveDiffsView = Backbone.View.extend({
         }));
 
         SyntaxHighlighter.highlight();
+
+        this.$el.find('.select-diff-bubble').hide();
+
+        this.$el.find('#left, #right').hover(function(){
+            $(this).find('.select-diff-bubble').fadeIn(300);
+            $(this).find('.syntaxhighlighter').animate({ opacity:1 });
+        }, function(){
+            $(this).find('.select-diff-bubble').fadeOut(300);
+            $(this).find('.syntaxhighlighter').animate({ opacity:.4 });
+        });
     }
 });
 
@@ -167,5 +169,20 @@ var ResolvedView = Backbone.View.extend({
         }));
 
         SyntaxHighlighter.highlight();
+
+        this.$el.find('#click-to-copy').zclip({
+            copy: function(){
+                return $('#template-for-copy').val()
+            }
+            ,afterCopy: function(){
+                $('#click-to-copy').text('Copied!');
+
+                setTimeout(function(){
+                    $('#click-to-copy').fadeOut(2000, function(){
+                        $(this).text('Click to Copy').fadeIn(1000);
+                    });
+                }, 2000);
+            }
+        });
     }
 });
