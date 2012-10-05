@@ -5234,6 +5234,8 @@ a.badge:hover {
 }
 body {
   padding: 30px 60px;
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
 }
 .diff .source .code-wrap {
   overflow-x: auto;
@@ -5243,10 +5245,11 @@ body {
   color: #fff;
   padding: 18px 12px 0;
   font-size: 22px;
-  width: 176px;
+  width: 136px;
   text-align: center;
   margin: 15px;
   word-wrap: break-word;
+  line-height: 28px;
   margin-left: 14%;
   top: 72px;
   position: fixed;
@@ -5283,6 +5286,9 @@ body {
   line-height: normal;
   width: 100%;
 }
+#header h1 {
+  font-weight: normal;
+}
 #content {
   position: relative;
   padding-bottom: 30px;
@@ -5309,10 +5315,11 @@ body {
   color: #fff;
   padding: 18px 12px 0;
   font-size: 22px;
-  width: 176px;
+  width: 136px;
   text-align: center;
   margin: 15px;
   word-wrap: break-word;
+  line-height: 28px;
   float: right;
 }
 #submit-box .continue-bubble a {
@@ -5369,10 +5376,11 @@ body {
   color: #fff;
   padding: 18px 12px 0;
   font-size: 22px;
-  width: 176px;
+  width: 136px;
   text-align: center;
   margin: 15px;
   word-wrap: break-word;
+  line-height: 28px;
   position: fixed;
   margin-left: 70%;
   z-index: 10;
