@@ -5343,8 +5343,20 @@ body {
 #left .syntaxhighlighter {
   background-color: #1b3944 !important;
 }
+#left .syntaxhighlighter .line.alt1 {
+  background-color: #1b3944 !important;
+}
+#left .syntaxhighlighter .line.alt2 {
+  background-color: #1b3944 !important;
+}
 #right .syntaxhighlighter {
-  background-color: #222 !important;
+  background-color: #222222 !important;
+}
+#right .syntaxhighlighter .line.alt1 {
+  background-color: #222222 !important;
+}
+#right .syntaxhighlighter .line.alt2 {
+  background-color: #222222 !important;
 }
 #right .select-diff-bubble {
   background-color: #222;

@@ -115,14 +115,36 @@ body{
 }
 
 #left{
-    .syntaxhighlighter{
-        background-color:#1b3944 !important;
+    @bgcolor:#1b3944;
+
+    .syntaxhighlighter {
+      background-color: @bgcolor !important;
+    }
+    .syntaxhighlighter .line.alt1 {
+      background-color: @bgcolor !important;
+    }
+    .syntaxhighlighter .line.alt2 {
+      background-color: @bgcolor !important;
+    }
+    .syntaxhighlighter .line.highlighted.alt1, .syntaxhighlighter .line.highlighted.alt2 {
+      //background-color: #323e41 !important;
     }
 }
 
 #right{
-    .syntaxhighlighter{
-        background-color:#222 !important;
+    @bgcolor:#222;
+
+    .syntaxhighlighter {
+      background-color: @bgcolor !important;
+    }
+    .syntaxhighlighter .line.alt1 {
+      background-color: @bgcolor !important;
+    }
+    .syntaxhighlighter .line.alt2 {
+      background-color: @bgcolor !important;
+    }
+    .syntaxhighlighter .line.highlighted.alt1, .syntaxhighlighter .line.highlighted.alt2 {
+      //background-color: #323e41 !important;
     }
 
     .select-diff-bubble{
