@@ -9,13 +9,31 @@ var CreateConflictView = Backbone.View.extend({
 
         this.conflict = new ConflictModel(opts.conflict || {});
 
-        this.template = _.template($('#create-conflict-template').html())
+        this.template = _.template($('#create-conflict-template').html());
     }
     ,events: {
         'click .submit': function(e){
             e.preventDefault();
 
             this.createConflict();
+        }
+        ,'keyup textarea': function(e){
+            //this.$el.find('pre').html( escapeHTML($(e.currentTarget).val()) );
+            //SyntaxHighlighter.highlight();
+
+            var val = $(e.currentTarget).val();
+
+            if (val.length){
+                this.$el.find('#submit-box').fadeIn(1355);
+
+                //this.$el.find('#formatted-code').html(escapeHTML($(e.currentTarget).val()));
+                //this.$el.find('#formatted-code').fadeIn(600);
+                //this.$el.find('textarea').fadeOut(600);
+
+                //setTimeout(function(){
+                    //SyntaxHighlighter.highlight();
+                //}, 300);
+            }
         }
     }
     ,createConflict: function(opts){
@@ -36,6 +54,8 @@ var CreateConflictView = Backbone.View.extend({
         this.$el.html(this.template({
             conflict: this.conflict
         }));
+
+        this.$el.find('#submit-box').hide();
     }
 });
 

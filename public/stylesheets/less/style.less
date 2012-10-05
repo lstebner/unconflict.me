@@ -1,11 +1,81 @@
 @import "bootstrap.less";
 @import "shCore.less";
-@import "shThemeDefault.less";
+@import "shThemeRDark.less";
+
+body{
+    padding:30px 60px;
+}
 
 .diff{
     .source{
         .code-wrap{
             overflow-x:auto;
         }
+    }
+}
+
+#header{
+    text-transform:uppercase;
+    font-size:40px;
+    line-height:normal;
+    width:100%;
+}
+
+#content{
+    position:relative;
+    padding-bottom:30px;
+}
+
+#create-conflict-form{
+    textarea, #diffs-overview{
+        position:absolute;
+        top:0;
+        left:0;
+        z-index:2;
+        background-color:#222;
+        color:#fff;
+        min-height:420px;
+        width:99%;
+        margin-bottom:30px;
+    }
+}
+
+#submit-box{
+    position:fixed;
+    width:100%;
+    z-index:20;
+    top:0;
+    left:0;
+
+    .bubble{
+        background-color:#00cc3e;
+        color:#fff;
+        padding:18px 12px 0;
+        font-size:22px;
+        width:176px;
+        text-align:center;
+        float:right;
+        margin:15px;
+
+        .tip{
+            position:relative;
+            bottom:-20px;
+            width: 0;
+            height: 0;
+            border-left: 26px solid transparent;
+            border-right: 14px solid transparent;
+            border-top: 20px solid #00cc3e;
+            left:50%;
+        }
+    }
+
+    .submit{
+        background-color:#0099cc;
+        padding:6px 18px;
+        color:#fff;
+        margin:15px;
+        font-size:18px;
+        float:right;
+        clear:right;
     }
 }

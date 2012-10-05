@@ -5129,33 +5129,33 @@ a.badge:hover {
  * Dual licensed under the MIT and GPL licenses.
  */
 .syntaxhighlighter {
-  background-color: white !important;
+  background-color: #1b2426 !important;
 }
 .syntaxhighlighter .line.alt1 {
-  background-color: white !important;
+  background-color: #1b2426 !important;
 }
 .syntaxhighlighter .line.alt2 {
-  background-color: white !important;
+  background-color: #1b2426 !important;
 }
 .syntaxhighlighter .line.highlighted.alt1,
 .syntaxhighlighter .line.highlighted.alt2 {
-  background-color: #e0e0e0 !important;
+  background-color: #323e41 !important;
 }
 .syntaxhighlighter .line.highlighted.number {
-  color: black !important;
+  color: #b9bdb6 !important;
 }
 .syntaxhighlighter table caption {
-  color: black !important;
+  color: #b9bdb6 !important;
 }
 .syntaxhighlighter .gutter {
   color: #afafaf !important;
 }
 .syntaxhighlighter .gutter .line {
-  border-right: 3px solid #6ce26c !important;
+  border-right: 3px solid #435a5f !important;
 }
 .syntaxhighlighter .gutter .line.highlighted {
-  background-color: #6ce26c !important;
-  color: white !important;
+  background-color: #435a5f !important;
+  color: #1b2426 !important;
 }
 .syntaxhighlighter.printing .line .content {
   border: none !important;
@@ -5164,77 +5164,135 @@ a.badge:hover {
   overflow: visible !important;
 }
 .syntaxhighlighter.collapsed .toolbar {
-  color: blue !important;
-  background: white !important;
-  border: 1px solid #6ce26c !important;
+  color: #5ba1cf !important;
+  background: black !important;
+  border: 1px solid #435a5f !important;
 }
 .syntaxhighlighter.collapsed .toolbar a {
-  color: blue !important;
+  color: #5ba1cf !important;
 }
 .syntaxhighlighter.collapsed .toolbar a:hover {
-  color: red !important;
+  color: #5ce638 !important;
 }
 .syntaxhighlighter .toolbar {
   color: white !important;
-  background: #6ce26c !important;
+  background: #435a5f !important;
   border: none !important;
 }
 .syntaxhighlighter .toolbar a {
   color: white !important;
 }
 .syntaxhighlighter .toolbar a:hover {
-  color: black !important;
+  color: #e0e8ff !important;
 }
 .syntaxhighlighter .plain,
 .syntaxhighlighter .plain a {
-  color: black !important;
+  color: #b9bdb6 !important;
 }
 .syntaxhighlighter .comments,
 .syntaxhighlighter .comments a {
-  color: #008200 !important;
+  color: #878a85 !important;
 }
 .syntaxhighlighter .string,
 .syntaxhighlighter .string a {
-  color: blue !important;
+  color: #5ce638 !important;
 }
 .syntaxhighlighter .keyword {
-  color: #006699 !important;
+  color: #5ba1cf !important;
 }
 .syntaxhighlighter .preprocessor {
-  color: gray !important;
+  color: #435a5f !important;
 }
 .syntaxhighlighter .variable {
-  color: #aa7700 !important;
+  color: #ffaa3e !important;
 }
 .syntaxhighlighter .value {
   color: #009900 !important;
 }
 .syntaxhighlighter .functions {
-  color: #ff1493 !important;
+  color: #ffaa3e !important;
 }
 .syntaxhighlighter .constants {
-  color: #0066cc !important;
+  color: #e0e8ff !important;
 }
 .syntaxhighlighter .script {
   font-weight: bold !important;
-  color: #006699 !important;
+  color: #5ba1cf !important;
   background-color: none !important;
 }
 .syntaxhighlighter .color1,
 .syntaxhighlighter .color1 a {
-  color: gray !important;
+  color: #e0e8ff !important;
 }
 .syntaxhighlighter .color2,
 .syntaxhighlighter .color2 a {
-  color: #ff1493 !important;
+  color: white !important;
 }
 .syntaxhighlighter .color3,
 .syntaxhighlighter .color3 a {
-  color: red !important;
+  color: #ffaa3e !important;
 }
-.syntaxhighlighter .keyword {
-  font-weight: bold !important;
+body {
+  padding: 30px 60px;
 }
 .diff .source .code-wrap {
   overflow-x: auto;
+}
+#header {
+  text-transform: uppercase;
+  font-size: 40px;
+  line-height: normal;
+  width: 100%;
+}
+#content {
+  position: relative;
+  padding-bottom: 30px;
+}
+#create-conflict-form textarea,
+#create-conflict-form #diffs-overview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background-color: #222;
+  color: #fff;
+  min-height: 420px;
+  width: 99%;
+  margin-bottom: 30px;
+}
+#submit-box {
+  position: fixed;
+  width: 100%;
+  z-index: 20;
+  top: 0;
+  left: 0;
+}
+#submit-box .bubble {
+  background-color: #00cc3e;
+  color: #fff;
+  padding: 18px 12px 0;
+  font-size: 22px;
+  width: 176px;
+  text-align: center;
+  float: right;
+  margin: 15px;
+}
+#submit-box .bubble .tip {
+  position: relative;
+  bottom: -20px;
+  width: 0;
+  height: 0;
+  border-left: 26px solid transparent;
+  border-right: 14px solid transparent;
+  border-top: 20px solid #00cc3e;
+  left: 50%;
+}
+#submit-box .submit {
+  background-color: #0099cc;
+  padding: 6px 18px;
+  color: #fff;
+  margin: 15px;
+  font-size: 18px;
+  float: right;
+  clear: right;
 }
