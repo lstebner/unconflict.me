@@ -5419,6 +5419,7 @@ body {
 }
 #language-select a:hover {
   background-color: #fafafa;
+  color: #bfbfbf;
 }
 #language-select span.arrow-down {
   position: relative;
@@ -5429,6 +5430,13 @@ body {
   border-right: 7px solid transparent;
   border-top: 7px solid #d8d8d8;
 }
-#language-select .open > .dropdown-menu {
-  width: 100%;
+#language-select .btn-group > .btn:first-child {
+  width: 240px;
+}
+#language-select .dropdown-menu {
+  padding: 0;
+}
+#language-select .dropdown-menu a {
+  padding: 4px 14px;
+  width: 210px;
 }

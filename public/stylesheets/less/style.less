@@ -193,6 +193,7 @@ body{
 
     a:hover{
         background-color:#fafafa;
+        color:darken(#d8d8d8, 10%);
     }
 
     span.arrow-down{
@@ -205,7 +206,16 @@ body{
         border-top: 7px solid #d8d8d8;
     }
 
-    .open > .dropdown-menu{
-        width:100%;
+    .btn-group > .btn:first-child{
+        width:240px;
+    }
+
+    .dropdown-menu{
+        padding:0;
+
+        a{
+            padding:4px 14px;
+            width:210px;
+        }
     }
 }

@@ -5,12 +5,25 @@ block content
         .pull-right
             #language-select
                 .btn-group
-                    button.btn What language is your code in?
+                    button.btn#selected-language(data-val="") What language is your code in?
                     button.btn.dropdown-toggle(data-toggle="dropdown")
                         span.arrow-down
                     ul.dropdown-menu
                         li
-                            a(href="#xml", data-val="xml") HTML
+                            a(href="#as3", data-val="as3") Actionscript 3
+                            a(href="#bash", data-val="bash") bash
+                            a(href="#csharp", data-val="csharp") C#
+                            a(href="#c", data-val="c") C/C++
+                            a(href="#xml", data-val="xml") HTML/XML
+                            a(href="#js", data-val="js") JavaScript
+                            a(href="#java", data-val="java") Java
+                            a(href="#perl", data-val="perl") Perl
+                            a(href="#php", data-val="php") PHP
+                            a(href="#plain", data-val="plain") Plain Text
+                            a(href="#py", data-val="py") Python
+                            a(href="#rails", data-val="rails") Ruby
+                            a(href="#sql", data-val="sql") SQL
+                            a(href="#vb", data-val="vb") Visual Basic
 
         h1
             a(href="/") unconflict.me

@@ -68,6 +68,7 @@ var MergeTemplateModel = Backbone.Model.extend({
 var ConflictModel = Backbone.Model.extend({
     defaults: {
         raw: ''
+        ,language: ''
         ,differences: []
         ,merge_template: ''
         ,merge_template_model: null

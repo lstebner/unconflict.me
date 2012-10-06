@@ -36,6 +36,7 @@ var CreateConflictView = Backbone.View.extend({
         ;
 
         this.conflict.set('raw', raw);
+        this.conflict.set('language', $('#selected-language').data('val'));
         this.conflict.save({}, { success:function(c){
             router.createConflictSubmit(c);
         }});

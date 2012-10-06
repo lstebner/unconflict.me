@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="code-wrap">
-                        <pre class="brush: xml; first-line: <%=diff.get('line_num')%>"><%=diff.get('content')%></pre>
+                        <pre class="brush: <%=conflict.get('language')%>; first-line: <%=diff.get('line_num')%>"><%=diff.get('content')%></pre>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                     </div>
 
                     <div class="code-wrap">
-                        <pre class="brush: xml; first-line: <%=diff.get('line_num')%>"><%=diff.get('content')%></pre>
+                        <pre class="brush: <%=conflict.get('language')%>; first-line: <%=diff.get('line_num')%>"><%=diff.get('content')%></pre>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@
             <a href="#" id="click-to-copy">Click to Copy</a>
             <div class="tip"></div>
         </div>
-        <pre id="resolved-content" class="brush: xml"><%=merged_output%></pre>
+        <pre id="resolved-content" class="brush: <%=conflict.get('language')%>"><%=merged_output%></pre>
         <textarea style="display:none;" id="template-for-copy"><%=merged_output%></textarea>
     </div>
 </script>
