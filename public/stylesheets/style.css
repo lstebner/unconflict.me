@@ -5345,7 +5345,8 @@ body {
   clear: right;
 }
 .syntaxhighlighter {
-  max-height: 450px;
+  height: 450px;
+  cursor: pointer;
 }
 #left .syntaxhighlighter {
   background-color: #1b3944 !important;
