@@ -101,6 +101,18 @@ var ResolveDiffsView = Backbone.View.extend({
 
             this.nextDiff();
         }
+        ,'click .syntaxhighlighter': function(e){
+            var side = $(e.currentTarget).closest('.source').attr('id');
+
+            if (side == 'left'){
+                this.active_diff.useLeft();
+            }
+            else{
+                this.active_diff.useRight();
+            }
+
+            this.nextDiff();
+        }
     }
     ,nextDiff: function(){
         this.router.touchConflict(this.conflict);
@@ -162,14 +174,15 @@ var ResolvedView = Backbone.View.extend({
 
         this.template = _.template($('#resolved-merge-template').html());
     }
+    ,events: {
+
+    }
     ,render: function(){
         this.$el.empty();
 
         this.$el.html(this.template({
             merged_output: this.conflict.get('merge_template_model').get('rendered')
         }));
-
-        SyntaxHighlighter.highlight();
 
         this.$el.find('#click-to-copy').zclip({
             copy: function(){
@@ -185,5 +198,7 @@ var ResolvedView = Backbone.View.extend({
                 }, 2000);
             }
         });
+
+        SyntaxHighlighter.highlight();
     }
 });
