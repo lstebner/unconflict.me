@@ -5407,3 +5407,28 @@ body {
   border-top: 20px solid #00cc3e;
   left: 50%;
 }
+#language-select .btn,
+#language-select a {
+  border-color: #d8d8d8;
+  color: #d8d8d8;
+  font-family: inherit;
+  text-transform: uppercase;
+  background: none;
+  background-color: #fff;
+  font-size: 17px;
+}
+#language-select a:hover {
+  background-color: #fafafa;
+}
+#language-select span.arrow-down {
+  position: relative;
+  top: 17px;
+  width: 0;
+  height: 0;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #d8d8d8;
+}
+#language-select .open > .dropdown-menu {
+  width: 100%;
+}

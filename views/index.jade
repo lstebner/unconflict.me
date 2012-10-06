@@ -2,6 +2,16 @@ extends layout
 
 block content
     #header
+        .pull-right
+            #language-select
+                .btn-group
+                    button.btn What language is your code in?
+                    button.btn.dropdown-toggle(data-toggle="dropdown")
+                        span.arrow-down
+                    ul.dropdown-menu
+                        li
+                            a(href="#xml", data-val="xml") HTML
+
         h1
             a(href="/") unconflict.me
     #content
