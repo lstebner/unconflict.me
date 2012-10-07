@@ -104,22 +104,37 @@ body{
 #submit-box{
     position:fixed;
     z-index:20;
-    top:0;
-    right:0;
+    top:85px;
+    right:35px;
 
     .continue-bubble{
         .bubble(#00cc3e);
         float:right;
+        text-align:left;
+        padding:5px 10px 0;
+        background-color:#1570a6;
+
+        .tip{
+            float:right;
+            bottom:-10px;
+            border-right-width:10px;
+            border-top-width:10px;
+            border-top-color:#222;
+            border-left-width:0;
+            margin-right:-10px;
+            left:0;
+        }
     }
 
     .submit{
-        background-color:#0099cc;
-        padding:6px 18px;
+        padding:2px 18px;
         color:#fff;
-        margin:15px;
+        margin:10px 0 0;
         font-size:18px;
-        float:right;
-        clear:right;
+        display:block;
+        text-align:center;
+        background-color:#22bb54;
+        border:1px solid #36da6b;
     }
 }
 

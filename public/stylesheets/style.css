@@ -5314,8 +5314,8 @@ body {
 #submit-box {
   position: fixed;
   z-index: 20;
-  top: 0;
-  right: 0;
+  top: 85px;
+  right: 35px;
 }
 #submit-box .continue-bubble {
   background-color: #00cc3e;
@@ -5328,6 +5328,9 @@ body {
   word-wrap: break-word;
   line-height: 28px;
   float: right;
+  text-align: left;
+  padding: 5px 10px 0;
+  background-color: #1570a6;
 }
 #submit-box .continue-bubble a {
   color: inherit;
@@ -5342,14 +5345,25 @@ body {
   border-top: 20px solid #00cc3e;
   left: 50%;
 }
-#submit-box .submit {
-  background-color: #0099cc;
-  padding: 6px 18px;
-  color: #fff;
-  margin: 15px;
-  font-size: 18px;
+#submit-box .continue-bubble .tip {
   float: right;
-  clear: right;
+  bottom: -10px;
+  border-right-width: 10px;
+  border-top-width: 10px;
+  border-top-color: #222;
+  border-left-width: 0;
+  margin-right: -10px;
+  left: 0;
+}
+#submit-box .submit {
+  padding: 2px 18px;
+  color: #fff;
+  margin: 10px 0 0;
+  font-size: 18px;
+  display: block;
+  text-align: center;
+  background-color: #22bb54;
+  border: 1px solid #36da6b;
 }
 .syntaxhighlighter {
   height: 450px;
