@@ -22,6 +22,7 @@ var CreateConflictView = Backbone.View.extend({
 
             if (val.length){
                 this.$el.find('#submit-box').fadeIn(1355);
+                attemptLanguageDetection();
             }
             else if (this.$el.find('#submit-box').is(':visible')){
                 this.$el.find('#submit-box').fadeOut(455);

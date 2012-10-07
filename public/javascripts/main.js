@@ -1,6 +1,6 @@
 //@codekit-prepend "jquery-1.8.2.js";
 //@codekit-prepend "bootstrap/bootstrap-dropdown.js";
-//@codekit-prepend "underscore-1.3.3.js";
+//@codekit-prepend "underscore.js";
 //@codekit-prepend "backbone-0.9.2.js";
 //@codekit-prepend "shCore.js";
 //@codekit-prepend "shBrushAS3.js";
@@ -40,4 +40,18 @@ $(function(){
 
 var escapeHTML = function(line){
     return line.replace(new RegExp('<', 'g'), '&lt;').replace(new RegExp('>', 'g'), '&gt;');
+};
+
+var attemptLanguageDetection = function(){
+    var code = $('#create-conflict-form textarea').val().replace(new RegExp("\n", 'g'), '')
+        ,guess = ''
+    ;
+
+    if (_.includesAny(code, ["<?php", "<?"])){
+        guess = 'php';
+    }
+
+    if (!_.isEmpty(guess)){
+        $('#language-select').find('a[href=#' + guess + ']').click();
+    }
 };
