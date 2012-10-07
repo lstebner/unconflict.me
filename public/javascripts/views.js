@@ -11,6 +11,32 @@ var CreateConflictView = Backbone.View.extend({
 
         this.template = _.template($('#create-conflict-template').html());
     }
+    ,readFile: function(){
+        var file = document.getElementById('conflicted-file').files[0]
+            ,reader = new FileReader()
+            ,$textarea = this.$el.find('textarea')
+        ;
+
+        setLanguageFromFilename(file.name);
+
+        reader.readAsText(file, "UTF-8");
+
+        reader.onprogress = function(e){};
+
+        reader.onload = function(e){
+            var result = e.target.result;
+
+            $textarea.val(result);
+
+            $('#submit-box').fadeIn(1355);
+
+            $('#conflicted-file').tooltip('hide');
+        };
+
+        reader.onerror = function(e){
+            console.log('file reader error');
+        };
+    }
     ,events: {
         'click .submit': function(e){
             e.preventDefault();
@@ -28,6 +54,9 @@ var CreateConflictView = Backbone.View.extend({
                 this.$el.find('#submit-box').fadeOut(455);
             }
         }
+        ,'change #conflicted-file': function(e){
+            this.readFile();
+        }
     }
     ,createConflict: function(opts){
         if (!opts){ opts = {}; }
@@ -40,6 +69,7 @@ var CreateConflictView = Backbone.View.extend({
         this.conflict.set('language', $('#selected-language').data('val'));
         this.conflict.save({}, { success:function(c){
             router.createConflictSubmit(c);
+            $('#language-select').hide();
         }});
     }
     ,render: function(){
@@ -50,6 +80,14 @@ var CreateConflictView = Backbone.View.extend({
         }));
 
         this.$el.find('#submit-box').hide();
+
+        this.$el.find('#conflicted-file').tooltip({
+            placement: 'right'
+            ,title: 'Select your conflicted file here'
+            ,trigger: 'manual'
+        }).tooltip('show');
+
+        $('#language-select').show();
     }
 });
 

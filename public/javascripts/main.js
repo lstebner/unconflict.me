@@ -1,5 +1,6 @@
 //@codekit-prepend "jquery-1.8.2.js";
 //@codekit-prepend "bootstrap/bootstrap-dropdown.js";
+//@codekit-prepend "bootstrap/bootstrap-tooltip.js";
 //@codekit-prepend "underscore.js";
 //@codekit-prepend "backbone-0.9.2.js";
 //@codekit-prepend "shCore.js";
@@ -53,5 +54,13 @@ var attemptLanguageDetection = function(){
 
     if (!_.isEmpty(guess)){
         $('#language-select').find('a[href=#' + guess + ']').click();
+    }
+};
+
+var setLanguageFromFilename = function(filename){
+    var $opt = $('#language-select').find('a[data-val=' + _.fileext(filename) + ']');
+
+    if ($opt.length){
+        $opt.click();
     }
 };

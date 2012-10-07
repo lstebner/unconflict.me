@@ -5311,10 +5311,16 @@ body {
   width: 99%;
   margin-bottom: 30px;
 }
+#create-conflict-form input[type="file"] {
+  border: 1px solid #d8d8d8;
+  background-color: #fff;
+  padding: 2px 8px;
+  margin: 10px 0 20px;
+}
 #submit-box {
   position: fixed;
   z-index: 20;
-  top: 85px;
+  top: 152px;
   right: 35px;
 }
 #submit-box .continue-bubble {
@@ -5426,13 +5432,27 @@ body {
 }
 #resolved .click-to-copy-bubble .tip {
   float: right;
-  bottom: -33px;
+  bottom: -15px;
   border-right-width: 10px;
   border-top-width: 10px;
   border-top-color: #222;
   border-left-width: 0;
   margin-right: -10px;
   left: 0;
+}
+#resolved .click-to-copy-bubble .submit {
+  padding: 2px 18px;
+  color: #fff;
+  margin: 10px 0 0;
+  font-size: 18px;
+  display: block;
+  text-align: center;
+  background-color: #22bb54;
+  border: 1px solid #36da6b;
+}
+#language-select {
+  position: relative;
+  top: 66px;
 }
 #language-select .btn,
 #language-select a {
@@ -5466,4 +5486,20 @@ body {
 #language-select .dropdown-menu a {
   padding: 4px 14px;
   width: 210px;
+}
+.tooltip {
+  font-size: 24px;
+  line-height: 28px;
+}
+.tooltip .tooltip-inner {
+  background-color: #22BB54;
+}
+.tooltip.right .tooltip-arrow {
+  border-right-color: #22BB54;
+}
+.tooltip.error .tooltip-inner {
+  background-color: #ff0000;
+}
+.tooltip.error.right .tooltip-arrow {
+  border-right-color: #ff0000;
 }
