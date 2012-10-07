@@ -47,7 +47,7 @@ var attemptLanguageDetection = function(){
         ,guess = ''
     ;
 
-    if (_.includesAny(code, ["<?php", "<?"])){
+    if (_.includesAny(code, ["<?php", "<?"]) > -1){
         guess = 'php';
     }
 

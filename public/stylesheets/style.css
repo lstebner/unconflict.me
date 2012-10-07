@@ -5404,9 +5404,12 @@ body {
   word-wrap: break-word;
   line-height: 28px;
   position: fixed;
-  margin-left: 70%;
   z-index: 10;
-  top: 35px;
+  top: 90px;
+  right: 35px;
+  text-align: left;
+  padding: 5px 10px;
+  background-color: #1570a6;
 }
 #resolved .click-to-copy-bubble a {
   color: inherit;
@@ -5420,6 +5423,16 @@ body {
   border-right: 14px solid transparent;
   border-top: 20px solid #00cc3e;
   left: 50%;
+}
+#resolved .click-to-copy-bubble .tip {
+  float: right;
+  bottom: -33px;
+  border-right-width: 10px;
+  border-top-width: 10px;
+  border-top-color: #222;
+  border-left-width: 0;
+  margin-right: -10px;
+  left: 0;
 }
 #language-select .btn,
 #language-select a {
