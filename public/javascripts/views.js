@@ -48,6 +48,7 @@ var CreateConflictView = Backbone.View.extend({
 
             if (val.length){
                 this.$el.find('#submit-box').fadeIn(1355);
+                $('#conflicted-file').tooltip('hide');
                 attemptLanguageDetection();
             }
             else if (this.$el.find('#submit-box').is(':visible')){
