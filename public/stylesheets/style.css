@@ -5453,6 +5453,7 @@ body {
 #language-select {
   position: relative;
   top: 66px;
+  z-index: 20;
 }
 #language-select .btn,
 #language-select a {
