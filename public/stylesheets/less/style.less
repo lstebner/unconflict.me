@@ -2,6 +2,9 @@
 @import "shCore.less";
 @import "shThemeRDark.less";
 
+@leftbgcolor:#1b3944;
+@rightbgcolor:#222;
+
 body{
     padding:30px 60px;
     font-family: 'Oswald', sans-serif;
@@ -124,7 +127,7 @@ body{
         .tip{
             float:right;
             bottom:-10px;
-            border-right-width:10px;
+            border-right-width:16px;
             border-top-width:10px;
             border-top-color:#222;
             border-left-width:0;
@@ -151,16 +154,14 @@ body{
 }
 
 #left{
-    @bgcolor:#1b3944;
-
     .syntaxhighlighter {
-      background-color: @bgcolor !important;
+      background-color: @leftbgcolor !important;
     }
     .syntaxhighlighter .line.alt1 {
-      background-color: @bgcolor !important;
+      background-color: @leftbgcolor !important;
     }
     .syntaxhighlighter .line.alt2 {
-      background-color: @bgcolor !important;
+      background-color: @leftbgcolor !important;
     }
     .syntaxhighlighter .line.highlighted.alt1, .syntaxhighlighter .line.highlighted.alt2 {
       //background-color: #323e41 !important;
@@ -168,16 +169,14 @@ body{
 }
 
 #right{
-    @bgcolor:#222;
-
     .syntaxhighlighter {
-      background-color: @bgcolor !important;
+      background-color: @rightbgcolor !important;
     }
     .syntaxhighlighter .line.alt1 {
-      background-color: @bgcolor !important;
+      background-color: @rightbgcolor !important;
     }
     .syntaxhighlighter .line.alt2 {
-      background-color: @bgcolor !important;
+      background-color: @rightbgcolor !important;
     }
     .syntaxhighlighter .line.highlighted.alt1, .syntaxhighlighter .line.highlighted.alt2 {
       //background-color: #323e41 !important;
@@ -295,5 +294,64 @@ body{
                 border-right-color:#ff0000;
             }
         }
+    }
+}
+
+#diffs-overview{
+    background-color:#222;
+    color:#888;
+
+    .line{
+        padding-left:12px;
+
+        .linenum{
+            display:inline-block;
+            .ie7-inline-block;
+            border-right:1px solid #ccc;
+            width:40px;
+            margin-right:8px;
+        }
+
+        &.conflicted{
+            background-color:#fcc;
+
+            &.left{
+                background-color:@leftbgcolor;
+            }
+
+            &.right{
+                background-color:#d8d8d8;
+            }
+        }
+    }
+
+    &.minimap{
+        line-height:1px;
+
+        .line{
+            font-size:1px;
+
+            code{
+                font-size:inherit;
+            }
+
+            .linenum{
+                display:none;
+            }
+        }
+
+        .conflict-container{
+            border:1px solid #222;
+
+            &:hover{
+                border-color:#f0f;
+            }
+        }
+    }
+
+    code{
+        border:none;
+        background:none;
+        white-space:pre;
     }
 }

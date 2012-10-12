@@ -5354,7 +5354,7 @@ body {
 #submit-box .continue-bubble .tip {
   float: right;
   bottom: -10px;
-  border-right-width: 10px;
+  border-right-width: 16px;
   border-top-width: 10px;
   border-top-color: #222;
   border-left-width: 0;
@@ -5503,4 +5503,53 @@ body {
 }
 .tooltip.error.right .tooltip-arrow {
   border-right-color: #ff0000;
+}
+#diffs-overview {
+  background-color: #222;
+  color: #888;
+}
+#diffs-overview .line {
+  padding-left: 12px;
+}
+#diffs-overview .line .linenum {
+  display: inline-block;
+  *display: inline;
+  /* IE7 inline-block hack */
+
+  *zoom: 1;
+  border-right: 1px solid #ccc;
+  width: 40px;
+  margin-right: 8px;
+}
+#diffs-overview .line.conflicted {
+  background-color: #fcc;
+}
+#diffs-overview .line.conflicted.left {
+  background-color: #1b3944;
+}
+#diffs-overview .line.conflicted.right {
+  background-color: #d8d8d8;
+}
+#diffs-overview.minimap {
+  line-height: 1px;
+}
+#diffs-overview.minimap .line {
+  font-size: 1px;
+}
+#diffs-overview.minimap .line code {
+  font-size: inherit;
+}
+#diffs-overview.minimap .line .linenum {
+  display: none;
+}
+#diffs-overview.minimap .conflict-container {
+  border: 1px solid #222;
+}
+#diffs-overview.minimap .conflict-container:hover {
+  border-color: #f0f;
+}
+#diffs-overview code {
+  border: none;
+  background: none;
+  white-space: pre;
 }

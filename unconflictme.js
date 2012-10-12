@@ -109,7 +109,7 @@ app.post('/process', function(req, res){
           left_branch = getBranchName(line);
         }
 
-        merge_template += "{diff-" + differences.length + "}";
+        merge_template += "{diff-" + differences.length + "}\n";
 
         conflict_line = line_num;
       }

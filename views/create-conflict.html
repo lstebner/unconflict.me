@@ -1,7 +1,41 @@
+<script type="text/template" id="diffs-overview-template">
+    <div id="diffs-overview" class="">
+        <% _.each(mergeTemplate.lines(), function(line, num){ %>
+            <% linenum = num + 1 %>
+
+            <% if (line.indexOf('{diff-') > -1){ %>
+                <% diff_index = parseInt(line.replace('{diff-', '').replace('}', '')); %>
+                <% diff = mergeTemplate.get('differences').at(diff_index); %>
+
+                <div class="conflict-container" id="conflict-container-<%=num%>">
+                    <% _.each(diff.get('left').lines(), function(l, n){ %>
+                        <div class="line conflicted left">
+                            <div class="linenum"><%=linenum%></div>
+                            <code><%=escapeHTML(l)%></code>
+                        </div>
+                    <% }); %>
+
+                    <% _.each(diff.get('right').lines(), function(l, n){ %>
+                        <div class="line conflicted right">
+                            <div class="linenum"><%=linenum%></div>
+                            <code><%=escapeHTML(l)%></code>
+                        </div>
+                    <% }); %>
+                </div>
+            <% } else { %>
+                <div class="line">
+                    <div class="linenum"><%=linenum%></div>
+                    <code><%=escapeHTML(line)%></code>
+                </div>
+            <% } %>
+        <% }); %>
+    </div>
+</script>
+
 <script type="text/template" id="create-conflict-template">
     <form id="create-conflict-form" enctype="multipart/form-data">
         <input type="file" name="conflicted_file" id="conflicted-file" />
-        <textarea></textarea>
+        <textarea>Select a conflicted file above or paste your conflicted code here to get started</textarea>
 
         <div id="submit-box">
             <div class="continue-bubble">

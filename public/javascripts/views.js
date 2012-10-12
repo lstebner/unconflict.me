@@ -15,6 +15,7 @@ var CreateConflictView = Backbone.View.extend({
         var file = document.getElementById('conflicted-file').files[0]
             ,reader = new FileReader()
             ,$textarea = this.$el.find('textarea')
+            ,self = this
         ;
 
         setLanguageFromFilename(file.name);
@@ -24,7 +25,26 @@ var CreateConflictView = Backbone.View.extend({
         reader.onprogress = function(e){};
 
         reader.onload = function(e){
-            var result = e.target.result;
+            var result = e.target.result
+            ;
+
+            self.createConflict(
+                { raw:result }
+                ,function(c){
+                    c.createMergeTemplate();
+
+                    $('textarea').hide();
+                    $('#create-conflict-form').append(
+                        _.template(
+                            $('#diffs-overview-template').html()
+                            ,{
+                                conflict:c
+                                ,mergeTemplate:c.get('merge_template_model')
+                            }
+                        )
+                    );
+                }
+            );
 
             $textarea.val(result);
 
@@ -39,9 +59,14 @@ var CreateConflictView = Backbone.View.extend({
     }
     ,events: {
         'click .submit': function(e){
+            var router = this.router;
+
             e.preventDefault();
 
-            this.createConflict();
+            this.createConflict(function(c){
+                router.createConflictSubmit(c);
+                $('#language-select').hide();
+            });
         }
         ,'keyup textarea': function(e){
             var val = $(e.currentTarget).val();
@@ -59,18 +84,18 @@ var CreateConflictView = Backbone.View.extend({
             this.readFile();
         }
     }
-    ,createConflict: function(opts){
+    ,createConflict: function(opts, fn){
         if (!opts){ opts = {}; }
 
-        var raw = this.$el.find('textarea').val()
-            ,router = this.router
+        var raw = opts.raw || this.$el.find('textarea').val()
         ;
 
         this.conflict.set('raw', raw);
         this.conflict.set('language', $('#selected-language').data('val'));
         this.conflict.save({}, { success:function(c){
-            router.createConflictSubmit(c);
-            $('#language-select').hide();
+            if (fn){
+                fn(c);
+            }
         }});
     }
     ,render: function(){

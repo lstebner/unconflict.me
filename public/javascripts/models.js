@@ -4,6 +4,9 @@ var SourceModel = Backbone.Model.extend({
         ,content: ''
         ,starting_line_num: 0
     }
+    ,lines: function(){
+        return _.str.lines(_.str.rtrim(this.get('content')));
+    }
 });
 
 var DiffModel = Backbone.Model.extend({
@@ -44,6 +47,9 @@ var MergeTemplateModel = Backbone.Model.extend({
         template: ''
         ,rendered: ''
         ,differences: []
+    }
+    ,lines: function(){
+        return _.str.lines(_.str.rtrim(this.get('template')));
     }
     ,setDifferences: function(diffs){
         this.set('differences', diffs);
