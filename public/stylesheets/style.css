@@ -5321,7 +5321,8 @@ body {
   position: fixed;
   z-index: 20;
   top: 152px;
-  right: 35px;
+  right: 0;
+  margin-right: 30px;
 }
 #submit-box .continue-bubble {
   background-color: #00cc3e;
