@@ -5375,6 +5375,7 @@ body {
 .syntaxhighlighter {
   height: 450px;
   cursor: pointer;
+  margin-top: 0 !important;
 }
 #left .syntaxhighlighter {
   background-color: #1b3944 !important;
@@ -5505,14 +5506,17 @@ body {
 .tooltip.error.right .tooltip-arrow {
   border-right-color: #ff0000;
 }
-#diffs-overview {
+.mergemap {
   background-color: #222;
   color: #888;
 }
-#diffs-overview .line {
+.mergemap.faded {
+  opacity: .5;
+}
+.mergemap .line {
   padding-left: 12px;
 }
-#diffs-overview .line .linenum {
+.mergemap .line .linenum {
   display: inline-block;
   *display: inline;
   /* IE7 inline-block hack */
@@ -5522,34 +5526,37 @@ body {
   width: 40px;
   margin-right: 8px;
 }
-#diffs-overview .line.conflicted {
+.mergemap .line.conflicted {
   background-color: #fcc;
 }
-#diffs-overview .line.conflicted.left {
+.mergemap .line.conflicted.left {
   background-color: #1b3944;
 }
-#diffs-overview .line.conflicted.right {
+.mergemap .line.conflicted.right {
   background-color: #d8d8d8;
 }
-#diffs-overview.minimap {
+.mergemap.minimap {
   line-height: 1px;
+  height: 450px;
+  overflow-y: auto;
 }
-#diffs-overview.minimap .line {
+.mergemap.minimap .line {
   font-size: 1px;
 }
-#diffs-overview.minimap .line code {
+.mergemap.minimap .line code {
   font-size: inherit;
+  color: #f0f0f0;
 }
-#diffs-overview.minimap .line .linenum {
+.mergemap.minimap .line .linenum {
   display: none;
 }
-#diffs-overview.minimap .conflict-container {
+.mergemap.minimap .conflict-container {
   border: 1px solid #222;
 }
-#diffs-overview.minimap .conflict-container:hover {
+.mergemap.minimap .conflict-container.active {
   border-color: #f0f;
 }
-#diffs-overview code {
+.mergemap code {
   border: none;
   background: none;
   white-space: pre;

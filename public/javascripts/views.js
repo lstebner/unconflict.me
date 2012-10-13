@@ -24,6 +24,7 @@ var CreateConflictView = Backbone.View.extend({
                         $('#diffs-overview-template').html()
                         ,{
                             conflict:c
+                            ,active_diff: -1
                             ,mergeTemplate:c.get('merge_template_model')
                         }
                     )
@@ -204,7 +205,6 @@ var ResolveDiffsView = Backbone.View.extend({
         }
     }
     ,previousDiff: function(){
-        this.router.touchConflict(this.conflict);
         this.active_diff_index = parseInt(this.active_diff_index) - 1;
         this.router.navigate('/diffs/' + this.active_diff_index, { trigger: true });
     }
@@ -234,6 +234,17 @@ var ResolveDiffsView = Backbone.View.extend({
             $(this).find('.select-diff-bubble').animate({ opacity:0 })
             $(this).find('.syntaxhighlighter').animate({ opacity:.4 });
         });
+
+        $('#minimap').html(
+            _.template(
+                $('#diffs-overview-template').html()
+                ,{
+                    active_diff: this.active_diff_index
+                    ,conflict:this.conflict
+                    ,mergeTemplate:this.conflict.get('merge_template_model')
+                }
+            )
+        );
     }
 });
 

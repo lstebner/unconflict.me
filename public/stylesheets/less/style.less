@@ -152,6 +152,7 @@ body{
 .syntaxhighlighter{
     height:450px;
     cursor:pointer;
+    margin-top:0 !important;
 }
 
 #left{
@@ -298,9 +299,13 @@ body{
     }
 }
 
-#diffs-overview{
+.mergemap{
     background-color:#222;
     color:#888;
+
+    &.faded{
+        opacity:.5;
+    }
 
     .line{
         padding-left:12px;
@@ -328,12 +333,15 @@ body{
 
     &.minimap{
         line-height:1px;
+        height:450px;
+        overflow-y:auto;
 
         .line{
             font-size:1px;
 
             code{
                 font-size:inherit;
+                color:#f0f0f0;
             }
 
             .linenum{
@@ -344,7 +352,7 @@ body{
         .conflict-container{
             border:1px solid #222;
 
-            &:hover{
+            &.active{
                 border-color:#f0f;
             }
         }
