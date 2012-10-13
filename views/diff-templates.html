@@ -12,9 +12,13 @@
                 <div id="left" class="source">
                     <% diff = active_diff.get('left'); %>
 
-                    <div class="select-diff-bubble">
-                        <a href="#" class="use-left">Select <%=diff.get('branch')%></a>
-                        <div class="tip"></div>
+                    <div class="bubble-container span5">
+                        <div class="select-diff-bubble">
+                            <%=diff.get('branch')%>
+                            <p class="small">This is your local committed version</p>
+                            <a href="#" class="submit use-left">Select</a>
+                            <div class="tip"></div>
+                        </div>
                     </div>
 
                     <div class="code-wrap">
@@ -29,9 +33,13 @@
                 <div id="right" class="source">
                     <% diff = active_diff.get('right'); %>
 
-                    <div class="select-diff-bubble">
-                        <a href="#" class="use-right">Select <%=diff.get('branch')%></a>
-                        <div class="tip"></div>
+                    <div class="bubble-container span5">
+                        <div class="select-diff-bubble hang-left">
+                            <%=diff.get('branch')%>
+                            <p class="small">This is the merge that is conflicting</p>
+                            <a href="#" class="submit use-right">Select</a>
+                            <div class="tip"></div>
+                        </div>
                     </div>
 
                     <div class="code-wrap">

@@ -5241,8 +5241,11 @@ body {
 .diff .source .code-wrap {
   overflow-x: auto;
 }
+.diff .bubble-container {
+  position: absolute;
+}
 .diff .select-diff-bubble {
-  background-color: #1b3944;
+  background-color: #00cc3e;
   color: #fff;
   padding: 18px 12px 0;
   font-size: 22px;
@@ -5251,11 +5254,13 @@ body {
   margin: 15px;
   word-wrap: break-word;
   line-height: 28px;
-  margin-left: 14%;
-  top: 72px;
-  position: fixed;
-  z-index: 10;
-  width: 300px;
+  position: relative;
+  float: right;
+  z-index: 25;
+  text-align: left;
+  padding: 5px 10px 0;
+  background-color: #1570a6;
+  margin-right: -16px;
 }
 .diff .select-diff-bubble a {
   color: inherit;
@@ -5267,11 +5272,38 @@ body {
   height: 0;
   border-left: 26px solid transparent;
   border-right: 14px solid transparent;
-  border-top: 20px solid #1b3944;
+  border-top: 20px solid #00cc3e;
   left: 50%;
 }
-.diff .select-diff-bubble a {
+.diff .select-diff-bubble .tip {
+  float: right;
+  bottom: -10px;
+  border-right-width: 16px;
+  border-top-width: 10px;
+  border-top-color: #222;
+  border-left-width: 0;
+  margin-right: -10px;
+  left: 0;
+}
+.diff .select-diff-bubble .submit {
+  padding: 2px 18px;
   color: #fff;
+  margin: 10px 0 0;
+  font-size: 18px;
+  display: block;
+  text-align: center;
+  background-color: #22bb54;
+  border: 1px solid #36da6b;
+}
+.diff .select-diff-bubble.hang-left {
+  float: left;
+  margin-left: -16px;
+}
+.diff .select-diff-bubble.hang-left .tip {
+  float: left;
+  margin-left: -10px;
+  border-right-width: 0;
+  border-left-width: 16px;
 }
 .diff .select-diff-side {
   display: inline-block;
