@@ -77,6 +77,9 @@ var CreateConflictView = Backbone.View.extend({
                 $('#language-select').hide();
             });
         }
+        ,'click textarea': function(e){
+            $(e.currentTarget).select();
+        }
         ,'keyup textarea': function(e){
             var val = $(e.currentTarget).val();
 
