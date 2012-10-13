@@ -59,11 +59,13 @@ var MergeTemplateModel = Backbone.Model.extend({
 
         var t = this.get('template');
 
-        this.get('differences').each(function(diff, index){
-            if (diff.get('selected')){
-                t = t.replace('{diff-' + index + '}', diff.get('selected').get('content'));
-            }
-        });
+        if (!_.isEmpty(this.get('differences'))){
+            this.get('differences').each(function(diff, index){
+                if (diff.get('selected')){
+                    t = t.replace('{diff-' + index + '}', diff.get('selected').get('content'));
+                }
+            });
+        }
 
         this.set('rendered', escapeHTML(t));
 

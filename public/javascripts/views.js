@@ -17,19 +17,27 @@ var CreateConflictView = Backbone.View.extend({
             ,function(c){
                 c.createMergeTemplate();
 
-                $('textarea').hide();
+                if (c.get('differences').length > 0){
+                    $('#submit-box').find('span:first').text('Nice! Not bad lookin\' code.');
+                    $('#submit-box').find('.submit').show();
+                    $('textarea').hide();
 
-                $('#diffs-overview').html(
-                    _.template(
-                        $('#diffs-overview-template').html()
-                        ,{
-                            conflict:c
-                            ,active_diff: -1
-                            ,mergeTemplate:c.get('merge_template_model')
-                        }
-                    )
-                );
-                $('#diffs-overview').show();
+                    $('#diffs-overview').html(
+                        _.template(
+                            $('#diffs-overview-template').html()
+                            ,{
+                                conflict:c
+                                ,active_diff: -1
+                                ,mergeTemplate:c.get('merge_template_model')
+                            }
+                        )
+                    );
+                    $('#diffs-overview').show();
+                }
+                else{
+                    $('#submit-box').find('span:first').text('Your file has no conflicts, this is good news!');
+                    $('#submit-box').find('.submit').hide();
+                }
             }
         );
 
@@ -65,6 +73,10 @@ var CreateConflictView = Backbone.View.extend({
     }
     ,events: {
         'click .submit': function(e){
+            if ($(e.currentTarget).attr('disabled')){
+                return false;
+            }
+
             var router = this.router;
 
             e.preventDefault();
