@@ -180,7 +180,7 @@ var ResolveDiffsView = Backbone.View.extend({
 
             this.nextDiff();
         }
-        ,'click .syntaxhighlighter': function(e){
+        ,'click .syntaxhighlighter, .select-diff-bubble': function(e){
             var side = $(e.currentTarget).closest('.source').attr('id');
 
             if (side == 'left'){
@@ -244,6 +244,26 @@ var ResolveDiffsView = Backbone.View.extend({
                     ,mergeTemplate:this.conflict.get('merge_template_model')
                 }
             )
+        );
+
+        this.$el.find('.select-diff-bubble').hover(
+            //over
+            function(){
+                var $self = $(this);
+
+                this.hoverTimeout = setTimeout(function(){
+                    $self.animate({ opacity:.2 }, 1800);
+                }, 350);
+            },
+            //out
+            function(){
+                if (_.has(this.hoverTimeout) && this.hoverTimeout){
+                    clearTimeout(this.hoverTimeout);
+                }
+
+                $(this).stop();
+                $(this).animate({ opacity:.9 }, 1800);
+            }
         );
     }
 });

@@ -5261,6 +5261,8 @@ body {
   padding: 5px 10px 0;
   background-color: #1570a6;
   margin-right: -16px;
+  color: #f9f9f9;
+  cursor: pointer;
 }
 .diff .select-diff-bubble a {
   color: inherit;
@@ -5274,6 +5276,11 @@ body {
   border-right: 14px solid transparent;
   border-top: 20px solid #00cc3e;
   left: 50%;
+}
+.diff .select-diff-bubble p.small {
+  font-size: 15px;
+  line-height: 17px;
+  color: #fff;
 }
 .diff .select-diff-bubble .tip {
   float: right;
@@ -5426,12 +5433,6 @@ body {
 }
 #right .syntaxhighlighter .line.alt2 {
   background-color: #222222 !important;
-}
-#right .select-diff-bubble {
-  background-color: #222;
-}
-#right .select-diff-bubble .tip {
-  border-top-color: #222;
 }
 #resolved .click-to-copy-bubble {
   background-color: #00cc3e;
